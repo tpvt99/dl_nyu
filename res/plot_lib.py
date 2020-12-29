@@ -136,6 +136,6 @@ def plot_state(data, state, b, decoder):
     actual_data = decoder(data[b, :, :].numpy())
     seq_len = len(actual_data)
     seq_len_w_pad = len(state)
-    for s in range(state.size(2)):
+    for s in range(state.shape[2]):
         states = tf.nn.sigmoid(state[:, b, s])
         _visualise_values(states[seq_len_w_pad - seq_len:], list(actual_data))
